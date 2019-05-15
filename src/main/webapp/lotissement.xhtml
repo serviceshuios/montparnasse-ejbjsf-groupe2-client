@@ -35,38 +35,38 @@
 		
 		<div>	
 		<h2>Liste des lotissements</h2>
-			<h:dataTable value="#{lotissementBean.listerLotissements()}" var="l"
-				class="table table-striped">
-				<h:column>
-					<f:facet name="header">ID</f:facet>
-					<h:outputText value="#{l.idLot}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Numéro de Lotissement</f:facet>
-					<h:outputText value="#{l.numLot}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Adresse Lotissemnet</f:facet>
-					<h:outputText value="#{l.adresseLot}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Date de création</f:facet>
-					<h:outputText value="#{l.dateCreation}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Modifier</f:facet>
-					<h:commandLink action="#{lotissementBean.getLotissement(l.idLot)}" value="Modifier">
-					<f:setPropertyActionListener target="#{lotissementBean.lotissement}" value="#{l}"></f:setPropertyActionListener>
-					</h:commandLink>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Supprimer</f:facet>
-					<h:commandLink action="#{lotissementBean.supprimerLotissement(l.idLot)}" value="Supprimer">
-					<f:setPropertyActionListener value="#{l.idLot}" target="#{lotissementBean.lotissement.idLot}"></f:setPropertyActionListener>
-					</h:commandLink>
-				</h:column>
+<!-- 			<h:dataTable value="#{lotissementBean.listerLotissements()}" var="l" -->
+<!-- 				class="table table-striped"> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">ID</f:facet> -->
+<!-- 					<h:outputText value="#{l.idLot}" /> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Numéro de Lotissement</f:facet> -->
+<!-- 					<h:outputText value="#{l.numLot}" /> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Adresse Lotissemnet</f:facet> -->
+<!-- 					<h:outputText value="#{l.adresseLot}" /> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Date de création</f:facet> -->
+<!-- 					<h:outputText value="#{l.dateCreation}" /> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Modifier</f:facet> -->
+<!-- 					<h:commandLink action="#{lotissementBean.getLotissement(l.idLot)}" value="Modifier"> -->
+<!-- 					<f:setPropertyActionListener target="#{lotissementBean.lotissement}" value="#{l}"></f:setPropertyActionListener> -->
+<!-- 					</h:commandLink> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Supprimer</f:facet> -->
+<!-- 					<h:commandLink action="#{lotissementBean.supprimerLotissement(l.idLot)}" value="Supprimer"> -->
+<!-- 					<f:setPropertyActionListener value="#{l.idLot}" target="#{lotissementBean.lotissement.idLot}"></f:setPropertyActionListener> -->
+<!-- 					</h:commandLink> -->
+<!-- 				</h:column> -->
 				
-		</h:dataTable>
+<!-- 		</h:dataTable> -->
 		</div>	
 	</h:form>	
 	</div>

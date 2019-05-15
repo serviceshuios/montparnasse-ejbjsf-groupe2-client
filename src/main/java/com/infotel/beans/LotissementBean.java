@@ -55,11 +55,10 @@ public class LotissementBean implements Serializable {
 	public Lotissement getLotissement(long idLot) {
 		return service.getLotissement(idLot);
 	}
-	
 	public void editerLotissement() {
 		service.editerLotissement(lotissement);
 	}
-	public List<Lotissement> listerLotissements() {
-		return service.listerLotissements();				
-	}
+//	public List<Lotissement> listerLotissements() {
+//		return service.listerLotissements();				
+//	}
 }
