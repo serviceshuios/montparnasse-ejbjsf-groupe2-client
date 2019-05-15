@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.infotel.ejb.ILotRemote;
 import com.infotel.metier.Personne;
 
 @ManagedBean
