@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+</h:head>
+<body>
+
+	<div class="container">
+	<h1>Fiche Lotissement</h1>
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+		<f:validateBean>
+		<h:outputLabel value="numLot" />
+			<h:inputText id="numLot" value="#{lotissementBean.lotissement.numLot}" />
+			<h:message for="numLot" errorClass="alert alert-danger"></h:message>
+			
+		<h:outputLabel value="Adresse Lot" />
+			<h:inputText id="adresseLot" value="#{lotissementBean.lotissement.adresseLot}" />
+			<h:message for="prenom" errorClass="alert alert-danger"></h:message>
+		
+		<h:outputLabel value="date de Creation" />
+			<h:inputText id="dateCreation" value="#{lotissementBean.lotissement.dateCreation}">
+				<f:convertDateTime />
+			</h:inputText>
+			<h:message for="dateCreation" errorClass="alert alert-danger"></h:message>
+			</f:validateBean>
+		</h:panelGrid>
+		<h:commandButton action="#{lotissementBean.ajouterLotissement}"
+				value="ajouter" />
+		
+		<div>	
+		<h2>Liste des lotissements</h2>
+			<h:dataTable value="#{lotissementBean.listerLotissements()}" var="l"
+				class="table table-striped">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{l.idLot}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Numéro de Lotissement</f:facet>
+					<h:outputText value="#{l.numLot}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Adresse Lotissemnet</f:facet>
+					<h:outputText value="#{l.adresseLot}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Date de création</f:facet>
+					<h:outputText value="#{l.dateCreation}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Modifier</f:facet>
+					<h:commandLink action="#{lotissementBean.getLotissement(l.idLot)}" value="Modifier">
+					<f:setPropertyActionListener target="#{lotissementBean.lotissement}" value="#{l}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Supprimer</f:facet>
+					<h:commandLink action="#{lotissementBean.supprimerLotissement(l.idLot)}" value="Supprimer">
+					<f:setPropertyActionListener value="#{l.idLot}" target="#{lotissementBean.lotissement.idLot}"></f:setPropertyActionListener>
+					</h:commandLink>
+				</h:column>
+				
+		</h:dataTable>
+		</div>	
+	</h:form>	
+	</div>
+</body>
+</html>
