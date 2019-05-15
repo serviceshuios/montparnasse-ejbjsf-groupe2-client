@@ -8,7 +8,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.infotel.ejb.ILotRemote;
-import com.infotel.metier.Lotissement;
 import com.infotel.metier.Personne;
 
 @Named
@@ -20,6 +19,10 @@ public class PersonneBean implements Serializable {
 	private ILotRemote service;
 	private Personne personne = new Personne();
 	private List<Personne> personnes;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public ILotRemote getService() {
 		return service;

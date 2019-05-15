@@ -5,8 +5,8 @@
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Insert title here</title>
-	<h:outputStylesheet library="css" name="style.css" />
-	<h:outputStylesheet library="css" name="bootstrap.css" />
+<!-- 	<h:outputStylesheet library="css" name="style.css" /> -->
+<!-- 	<h:outputStylesheet library="css" name="bootstrap.css" /> -->
 </h:head>
 <body>
 
@@ -26,11 +26,11 @@
 			<h:inputText id="age" value="#{personneBean.personne.age}" />
 			<h:message for="age" errorClass="alert alert-danger"></h:message>
 			
-<!-- 		<h:outputLabel value="Lotissement" /> -->
-<!-- 				<h:selectOneMenu value="#{personneBean.personne.lotissements}"> -->
-<!-- 				<f:selectItem itemValue="0" itemLabel="Choisissez un lotissement"/> -->
-<!-- 				<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l" itemValue="#{l.idLot}" itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation}, #{l.prix}"/> -->
-<!-- 			</h:selectOneMenu> -->
+		<h:outputLabel value="Lotissement" />
+				<h:selectOneMenu value="#{personneBean.personne.lotissements}">
+				<f:selectItem itemValue="0" itemLabel="Choisissez un lotissement"/>
+				<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l" itemValue="#{l.idLot}" itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation}, #{l.prix}"/>
+			</h:selectOneMenu>
 		</h:panelGrid>
 		<h:commandButton action="#{personneBean.ajouterPersonne}"
 				value="ajouter" />
@@ -55,10 +55,10 @@
 					<f:facet name="header">Age</f:facet>
 					<h:outputText value="#{p.age}" />
 				</h:column>
-<!-- 				<h:column> -->
-<!-- 					<f:facet name="header">Lotissement</f:facet> -->
-<!-- 					<h:outputText value="#{p.lotissements}" /> -->
-<!-- 				</h:column> -->
+				<h:column>
+					<f:facet name="header">Lotissement</f:facet>
+					<h:outputText value="#{p.lotissements}" />
+				</h:column>
 				<h:column>
 					<f:facet name="header">Modifier</f:facet>
 					<h:commandLink action="#{personneBean.getPersonne(p.idPersonne)}" value="Modifier">
