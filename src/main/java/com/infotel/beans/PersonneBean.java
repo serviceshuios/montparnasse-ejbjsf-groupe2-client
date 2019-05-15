@@ -8,6 +8,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 import com.infotel.ejb.ILotRemote;
+import com.infotel.metier.Lotissement;
 import com.infotel.metier.Personne;
 
 @Named
@@ -44,4 +45,21 @@ public class PersonneBean implements Serializable {
 		this.personnes = personnes;
 	}
 
+	// methodes
+	public void ajouterPersonne(Personne p) {
+		service.ajouterPersonne(p);
+	}
+	public void supprimerPersonne(Personne p) {
+		service.supprimerPersonne(p);
+	}
+	public Personne getPersonne(Long id) {
+		return service.getPersonne(id);
+	}
+	public void editerPersonne(Personne p) {
+		service.editerPersonne(p);
+	}
+	public List<Personne> listerPersonnes() {
+		return service.listerPersonnes();
+	}
+	
 }

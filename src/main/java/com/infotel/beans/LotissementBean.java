@@ -44,4 +44,22 @@ public class LotissementBean implements Serializable {
 		this.lotissements = lotissements;
 	}
 
+	// methodes
+
+	public void ajouterLotissement() {
+		service.ajouterLotissement(lotissement);
+	}
+	public void supprimerLotissement() {
+		service.supprimerLotissement(lotissement);
+	}
+	public Lotissement getLotissement(long idLot) {
+		return service.getLotissement(idLot);
+	}
+	
+	public void editerLotissement() {
+		service.editerLotissement(lotissement);
+	}
+	public List<Lotissement> listerLotissements() {
+		return service.listerLotissements();				
+	}
 }

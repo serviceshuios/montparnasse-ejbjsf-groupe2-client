@@ -27,7 +27,7 @@
 			<h:message for="age" errorClass="alert alert-danger"></h:message>
 			
 		<h:outputLabel value="Lotissement" />
-				<h:selectOneMenu value="#{personneBean.personne.lotissement.idLot}">
+				<h:selectOneMenu value="#{personneBean.personne.lotissements}">
 				<f:selectItem itemValue="0" itemLabel="Choisissez un lotissement"/>
 				<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l" itemValue="#{l.idLot}" itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation}, #{l.prix}"/>
 			</h:selectOneMenu>
@@ -55,10 +55,10 @@
 					<f:facet name="header">Age</f:facet>
 					<h:outputText value="#{p.age}" />
 				</h:column>
-				<h:column>
-					<f:facet name="header">Lotissement</f:facet>
-					<h:outputText value="#{p.lotissement}" />
-				</h:column>
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Lotissement</f:facet> -->
+<!-- 					<h:outputText value="#{p.lotissements}" /> -->
+<!-- 				</h:column> -->
 				<h:column>
 					<f:facet name="header">Modifier</f:facet>
 					<h:commandLink action="#{personneBean.getPersonne(p.idPersonne)}" value="Modifier">
