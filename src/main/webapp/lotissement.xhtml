@@ -28,6 +28,13 @@
 				<f:convertDateTime />
 			</h:inputText>
 			<h:message for="dateCreation" errorClass="alert alert-danger"></h:message>
+			
+		<h:outputLabel value="Personne" />
+			<h:selectOneMenu value="#{lotissementBean.lotissement.personne}">
+				<f:selectItem itemValue="0" itemLabel="Attribuez une personne"/>
+				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" itemValue="#{p.idPersonne}" itemLabel="#{p.nom},#{p.prenom},#{p.age}"/>
+			</h:selectOneMenu>
+			
 			</f:validateBean>
 		</h:panelGrid>
 		<h:commandButton action="#{lotissementBean.ajouterLotissement}"
@@ -48,12 +55,16 @@
 					<h:outputText value="#{l.numLot}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Adresse Lotissemnet</f:facet>
+					<f:facet name="header">Adresse Lotissement</f:facet>
 					<h:outputText value="#{l.adresseLot}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Date de création</f:facet>
 					<h:outputText value="#{l.dateCreation}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Personne</f:facet>
+					<h:outputText value="#{l.personne}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Modifier</f:facet>
