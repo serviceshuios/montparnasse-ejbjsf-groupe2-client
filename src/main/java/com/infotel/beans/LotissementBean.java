@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import com.infotel.ejb.ILotRemote;
 import com.infotel.metier.Lotissement;
+import com.infotel.metier.Personne;
 
 @Named
 @SessionScoped
@@ -19,6 +20,15 @@ public class LotissementBean implements Serializable {
 	private ILotRemote service;
 	private Lotissement lotissement = new Lotissement();
 	private List<Lotissement> lotissements;
+	private Personne personne;
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -69,7 +79,10 @@ public class LotissementBean implements Serializable {
 		return service.listerLotissements();				
 	}
 
-	public void acheterLotissement(long idPersonne, long idLot) {
+	public void acheterLotissement() {
+		long idPersonne = personne.getIdPersonne();
+//		long idPersonne = lotissement.getPersonne().getIdPersonne();
+		long idLot = lotissement.getIdLot();
 		service.acheterLotissement(idPersonne, idLot);
 	}
 	
