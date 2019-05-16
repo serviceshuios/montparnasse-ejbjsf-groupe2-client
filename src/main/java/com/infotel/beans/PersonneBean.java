@@ -69,4 +69,7 @@ public class PersonneBean implements Serializable {
 		return service.listerPersonnes();
 	}
 	
+	public void seMarier(Personne p1, Personne p2) {
+		System.out.println("Félicitations !");
+	}
 }

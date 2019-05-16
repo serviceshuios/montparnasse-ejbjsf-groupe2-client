@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta charset="UTF-8" />
-	<title>Insert title here</title>
+	<title>Mariage</title>
 	<h:outputStylesheet library="css" name="style.css" />
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 </h:head>
@@ -15,13 +15,12 @@
 	<h:form>
 		<h:panelGrid columns="2" cellpadding="5">
 		<f:validateBean>
-		
 		<h:outputLabel value="Personne 1" />
 			<h:selectOneMenu value="#{personneBean.personne.idPersonne}">
 				<f:selectItem itemValue="0" itemLabel="Choisissez une personne"/>
 				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" 
 				itemValue="#{p.idPersonne}"
-				itemLabel="#{p.nom},#{p.prenom},#{p.age}" />
+				itemLabel="[#{p.idPersonne}] #{p.nom} #{p.prenom}, #{p.age} ans" />
 			</h:selectOneMenu>
 			
 		<h:outputLabel value="Personne 2" />
@@ -29,17 +28,17 @@
 				<f:selectItem itemValue="0" itemLabel="Choisissez une personne"/>
 				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" 
 				itemValue="#{p.idPersonne}"
-				itemLabel="#{p.nom},#{p.prenom},#{p.age}" />
+				itemLabel="[#{p.idPersonne}] #{p.nom} #{p.prenom}, #{p.age} ans" />
 			</h:selectOneMenu>	
 			
 		</f:validateBean>
 		</h:panelGrid>
 		
-		<h:commandButton action="#{personneBean.semarier}"
+		<h:commandButton action="#{personneBean.seMarier}"
 				value="se marier" />
 		
 		<div>	
-		<h2>Liste des personnes mariées</h2>
+		<h2>Liste des mariés</h2>
 			<h:dataTable value="#{personneBean.listerPersonnes()}" var="p"
 				class="table table-striped">
 				<h:column>
@@ -51,11 +50,11 @@
 					<h:outputText value="#{p.nom}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Prenom</f:facet>
+					<f:facet name="header">Prénom</f:facet>
 					<h:outputText value="#{p.prenom}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Age</f:facet>
+					<f:facet name="header">Âge</f:facet>
 					<h:outputText value="#{p.age}" />
 				</h:column>
 				<h:column>
