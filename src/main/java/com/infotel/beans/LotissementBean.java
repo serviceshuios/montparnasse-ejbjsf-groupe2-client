@@ -20,7 +20,17 @@ public class LotissementBean implements Serializable {
 	private ILotRemote service;
 	private Lotissement lotissement = new Lotissement();
 	private List<Lotissement> lotissements;
-	private Personne personne;
+	private List<Personne> personnes;
+	private Personne personne = new Personne();
+	
+
+	public List<Personne> getPersonnes() {
+		return service.listerPersonnes();
+	}
+
+	public void setPersonnes(List<Personne> personnes) {
+		this.personnes = personnes;
+	}
 
 	public Personne getPersonne() {
 		return personne;

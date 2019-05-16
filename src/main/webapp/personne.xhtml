@@ -19,11 +19,11 @@
 			<h:inputText id="nom" value="#{personneBean.personne.nom}" />
 			<h:message for="nom" errorClass="alert alert-danger"></h:message>
 			
-		<h:outputLabel value="Prenom" />
+		<h:outputLabel value="Prénom" />
 			<h:inputText id="prenom" value="#{personneBean.personne.prenom}" />
 			<h:message for="prenom" errorClass="alert alert-danger"></h:message>
 		
-		<h:outputLabel value="Age" />
+		<h:outputLabel value="Âge" />
 			<h:inputText id="age" value="#{personneBean.personne.age}" />
 			<h:message for="age" errorClass="alert alert-danger"></h:message>
 			
@@ -53,11 +53,11 @@
 					<h:outputText value="#{p.nom}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Prenom</f:facet>
+					<f:facet name="header">Prénom</f:facet>
 					<h:outputText value="#{p.prenom}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Age</f:facet>
+					<f:facet name="header">Âge</f:facet>
 					<h:outputText value="#{p.age}" />
 				</h:column>
 <!-- 				<h:column> -->
