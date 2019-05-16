@@ -60,7 +60,6 @@ public class LotissementBean implements Serializable {
 	}
 
 	// methodes
-
 	public void ajouterLotissement() {
 		service.ajouterLotissement(lotissement);
 	}
@@ -77,7 +76,6 @@ public class LotissementBean implements Serializable {
 		return service.listerLotissements();				
 	}
 
-	
 	public void supprimerLotissement2(long idLot) {
 		service.supprimerLotissement2(idLot);
 	}
