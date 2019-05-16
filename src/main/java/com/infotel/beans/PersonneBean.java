@@ -52,11 +52,11 @@ public class PersonneBean implements Serializable {
 	public void ajouterPersonne() {
 		service.ajouterPersonne(personne);
 	}
-	public void supprimerPersonne(Long id) {
-		service.supprimerPersonne(id);
+	public void supprimerPersonne(Long idPersonne) {
+		service.supprimerPersonne(idPersonne);
 	}
-	public Personne getPersonne(long id) {
-		return service.getPersonne(id);
+	public Personne getPersonne(long idPersonne) {
+		return service.getPersonne(idPersonne);
 	}
 	public void editerPersonne() {
 		service.editerPersonne(personne);
