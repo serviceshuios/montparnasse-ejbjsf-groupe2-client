@@ -11,9 +11,10 @@
 <body>
 
 	<div class="container">
-	<h1>Fiche Personne </h1>
+	<h1>Fiche Personne</h1>
 	<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
+		<h:panelGrid columns="3" cellpadding="5">
+		<f:validateBean>
 		<h:outputLabel value="Nom" />
 			<h:inputText id="nom" value="#{personneBean.personne.nom}" />
 			<h:message for="nom" errorClass="alert alert-danger"></h:message>
@@ -26,11 +27,12 @@
 			<h:inputText id="age" value="#{personneBean.personne.age}" />
 			<h:message for="age" errorClass="alert alert-danger"></h:message>
 			
-		<h:outputLabel value="Lotissement" />
-				<h:selectOneMenu value="#{personneBean.personne.lotissements}">
-				<f:selectItem itemValue="0" itemLabel="Choisissez un lotissement"/>
-				<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l" itemValue="#{l.idLot}" itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation}, #{l.prix}"/>
-			</h:selectOneMenu>
+<!-- 		<h:outputLabel value="Lotissement" /> -->
+<!-- 			<h:selectOneMenu value="#{personneBean.personne.lotissements}"> -->
+<!-- 				<f:selectItem itemValue="0" itemLabel="Choisissez un lotissement"/> -->
+<!-- 				<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l" itemValue="#{l.idLot}" itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation}, #{l.prix}"/> -->
+<!-- 			</h:selectOneMenu> -->
+		</f:validateBean>
 		</h:panelGrid>
 		<h:commandButton action="#{personneBean.ajouterPersonne}"
 				value="ajouter" />
@@ -77,4 +79,4 @@
 	</h:form>	
 	</div>
 </body>
-</html>
+</html> 
