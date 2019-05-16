@@ -76,4 +76,9 @@ public class LotissementBean implements Serializable {
 	public List<Lotissement> listerLotissements() {
 		return service.listerLotissements();				
 	}
+
+	
+	public void supprimerLotissement2(long idLot) {
+		service.supprimerLotissement2(idLot);
+	}
 }
