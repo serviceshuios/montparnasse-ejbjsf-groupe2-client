@@ -73,3 +73,4 @@ public class PersonneBean implements Serializable {
 		System.out.println("Félicitations !");
 	}
 }
+
