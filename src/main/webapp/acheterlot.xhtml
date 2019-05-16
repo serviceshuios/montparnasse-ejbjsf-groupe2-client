@@ -35,8 +35,52 @@
 				value="Attribuer" />
 
 			<div>
-				<h2>Lotissements</h2>
-				<h:dataTable value="#{lotissementBean.listerLotissements()}" var="l"
+				<h2>Lotissements vendus</h2>
+				<h:dataTable value="#{lotissementBean.listerVendus()}" var="l"
+					class="table table-striped">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{l.idLot}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Numéro</f:facet>
+						<h:outputText value="#{l.numLot}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Adresse</f:facet>
+						<h:outputText value="#{l.adresseLot}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Date de création</f:facet>
+						<h:outputText value="#{l.dateCreation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">ID du propriétaire</f:facet>
+						<h:outputText value="#{l.personne.idPersonne}" />
+					</h:column>
+<!-- 					<h:column> -->
+<!-- 						<f:facet name="header">Modifier</f:facet> -->
+<!-- 						<h:commandLink action="#{lotissementBean.getLotissement(l.idLot)}" -->
+<!-- 							value="Modifier"> -->
+<!-- 							<f:setPropertyActionListener -->
+<!-- 								target="#{lotissementBean.lotissement}" value="#{l}"></f:setPropertyActionListener> -->
+<!-- 						</h:commandLink> -->
+<!-- 					</h:column> -->
+<!-- 					<h:column> -->
+<!-- 						<f:facet name="header">Supprimer</f:facet> -->
+<!-- 						<h:commandLink -->
+<!-- 							action="#{lotissementBean.supprimerLotissement2(l.idLot)}" -->
+<!-- 							value="Supprimer"> -->
+<!-- 							<f:setPropertyActionListener value="#{l.idLot}" -->
+<!-- 								target="#{lotissementBean.lotissement.idLot}"></f:setPropertyActionListener> -->
+<!-- 						</h:commandLink> -->
+<!-- 					</h:column> -->
+				</h:dataTable>
+			</div>
+
+			<div>
+				<h2>Lotissements à vendre</h2>
+				<h:dataTable value="#{lotissementBean.listerAVendre()}" var="l"
 					class="table table-striped">
 					<h:column>
 						<f:facet name="header">ID</f:facet>

@@ -51,6 +51,7 @@ public class PersonneBean implements Serializable {
 	// methodes
 	public void ajouterPersonne() {
 		service.ajouterPersonne(personne);
+		personne = new Personne();
 	}
 	
 	public void supprimerPersonne(Long idPersonne) {
@@ -63,6 +64,7 @@ public class PersonneBean implements Serializable {
 	
 	public void editerPersonne() {
 		service.editerPersonne(personne);
+		personne = new Personne();
 	}
 	
 	public List<Personne> listerPersonnes() {

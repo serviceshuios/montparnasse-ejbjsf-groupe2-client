@@ -28,6 +28,7 @@ public class LotissementBean implements Serializable {
 		return service.listerPersonnes();
 	}
 
+	// ne sert qu'a l'affichage dans la liste deroulante de acheterlot?
 	public void setPersonnes(List<Personne> personnes) {
 		this.personnes = personnes;
 	}
@@ -71,6 +72,7 @@ public class LotissementBean implements Serializable {
 	// methodes
 	public void ajouterLotissement() {
 		service.ajouterLotissement(lotissement);
+		lotissement = new Lotissement();
 	}
 
 	public void supprimerLotissement(long idLot) {
@@ -83,6 +85,7 @@ public class LotissementBean implements Serializable {
 	
 	public void editerLotissement() {
 		service.editerLotissement(lotissement);
+		lotissement = new Lotissement();
 	}
 	
 	public List<Lotissement> listerLotissements() {
@@ -91,12 +94,15 @@ public class LotissementBean implements Serializable {
 
 	public void acheterLotissement() {
 		long idPersonne = personne.getIdPersonne();
-//		long idPersonne = lotissement.getPersonne().getIdPersonne();
 		long idLot = lotissement.getIdLot();
 		service.acheterLotissement(idPersonne, idLot);
 	}
 	
-	public List<Lotissement> listerAchats() {
-		return service.listerAchats();
+	public List<Lotissement> listerVendus() {
+		return service.listerVendus();
+	}
+
+	public List<Lotissement> listerAVendre() {
+		return service.listerAVendre();
 	}
 }
