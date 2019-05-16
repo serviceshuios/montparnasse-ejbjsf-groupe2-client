@@ -15,26 +15,19 @@
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="5">
 		<f:validateBean>
-		<h:outputLabel value="numLot" />
+		<h:outputLabel value="Numéro lotissement" />
 			<h:inputText id="numLot" value="#{lotissementBean.lotissement.numLot}" />
 			<h:message for="numLot" errorClass="alert alert-danger"></h:message>
 			
-		<h:outputLabel value="Adresse Lot" />
+		<h:outputLabel value="Adresse lotissement" />
 			<h:inputText id="adresseLot" value="#{lotissementBean.lotissement.adresseLot}" />
 			<h:message for="adresseLot" errorClass="alert alert-danger"></h:message>
 		
-		<h:outputLabel value="date de Creation" />
+		<h:outputLabel value="Date de création" />
 			<h:inputText id="dateCreation" value="#{lotissementBean.lotissement.dateCreation}">
 				<f:convertDateTime />
 			</h:inputText>
 			<h:message for="dateCreation" errorClass="alert alert-danger"></h:message>
-			
-<!-- 		<h:outputLabel value="Personne" /> -->
-<!-- 			<h:selectOneMenu value="#{lotissementBean.lotissement.personne.idPersonne}"> -->
-<!-- 				<f:selectItem itemValue="0" itemLabel="Attribuez une personne"/> -->
-<!-- 				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" itemValue="#{p.idPersonne}" itemLabel="#{p.nom},#{p.prenom},#{p.age}"/> -->
-<!-- 			</h:selectOneMenu> -->
-			
 			</f:validateBean>
 		</h:panelGrid>
 		<h:commandButton action="#{lotissementBean.ajouterLotissement}"
@@ -62,10 +55,6 @@
 					<f:facet name="header">Date de création</f:facet>
 					<h:outputText value="#{l.dateCreation}" />
 				</h:column>
-<!-- 				<h:column> -->
-<!-- 					<f:facet name="header">Personne</f:facet> -->
-<!-- 					<h:outputText value="#{l.personne}" /> -->
-<!-- 				</h:column> -->
 				<h:column>
 					<f:facet name="header">Modifier</f:facet>
 					<h:commandLink action="#{lotissementBean.getLotissement(l.idLot)}" value="Modifier">
@@ -74,7 +63,7 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">Supprimer</f:facet>
-					<h:commandLink action="#{lotissementBean.supprimerLotissement2(l.idLot)}" value="Supprimer">
+					<h:commandLink action="#{lotissementBean.supprimerLotissement(l.idLot)}" value="Supprimer">
 					<f:setPropertyActionListener value="#{l.idLot}" target="#{lotissementBean.lotissement.idLot}"></f:setPropertyActionListener>
 					</h:commandLink>
 				</h:column>
