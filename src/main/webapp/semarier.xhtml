@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+</h:head>
+<body>
+
+	<div class="container">
+	<h1>Mariage</h1>
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+		<f:validateBean>
+		
+		<h:outputLabel value="Personne 1" />
+			<h:selectOneMenu value="#{personneBean.personne.idPersonne}">
+				<f:selectItem itemValue="0" itemLabel="Choisissez une personne"/>
+				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" 
+				itemValue="#{p.idPersonne}"
+				itemLabel="#{p.nom},#{p.prenom},#{p.age}" />
+			</h:selectOneMenu>
+			
+		<h:outputLabel value="Personne 2" />
+			<h:selectOneMenu value="#{personneBean.personne.idPersonne}">
+				<f:selectItem itemValue="0" itemLabel="Choisissez une personne"/>
+				<f:selectItems value="#{personneBean.listerPersonnes()}" var="p" 
+				itemValue="#{p.idPersonne}"
+				itemLabel="#{p.nom},#{p.prenom},#{p.age}" />
+			</h:selectOneMenu>	
+			
+		</f:validateBean>
+		</h:panelGrid>
+		
+		<h:commandButton action="#{personneBean.semarier}"
+				value="se marier" />
+		
+		<div>	
+		<h2>Liste des personnes mariées</h2>
+			<h:dataTable value="#{personneBean.listerPersonnes()}" var="p"
+				class="table table-striped">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{p.idPersonne}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nom</f:facet>
+					<h:outputText value="#{p.nom}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Prenom</f:facet>
+					<h:outputText value="#{p.prenom}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Age</f:facet>
+					<h:outputText value="#{p.age}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Conjoint(e)</f:facet>
+					<h:outputText value="#{p.idPersonne}" />
+				</h:column>
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Modifier</f:facet> -->
+<!-- 					<h:commandLink action="#{personneBean.getPersonne(p.idPersonne)}" value="Modifier"> -->
+<!-- 					<f:setPropertyActionListener target="#{personneBean.personne}" value="#{p}"></f:setPropertyActionListener> -->
+<!-- 					</h:commandLink> -->
+<!-- 				</h:column> -->
+<!-- 				<h:column> -->
+<!-- 					<f:facet name="header">Supprimer</f:facet> -->
+<!-- 					<h:commandLink action="#{personneBean.supprimerPersonne(p.idPersonne)}" value="Supprimer"> -->
+<!-- 					<f:setPropertyActionListener value="#{p.idPersonne}" target="#{personneBean.personne.idPersonne}"></f:setPropertyActionListener> -->
+<!-- 					</h:commandLink> -->
+<!-- 				</h:column> -->
+			
+		</h:dataTable>
+		</div>	
+	</h:form>	
+	</div>
+</body>
+</html> 
