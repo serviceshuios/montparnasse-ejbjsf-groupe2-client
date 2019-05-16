@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+</h:head>
+<body>
+
+	<div class="container">
+		<h1>Fiche Lotissement</h1>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<f:validateBean>
+
+					<h:outputLabel value="Personne" />
+					<h:selectOneMenu
+						value="#{personneBean.personne.idPersonne}">
+						<f:selectItem itemValue="0" itemLabel="Attribuez une personne" />
+						<f:selectItems value="#{personneBean.listerPersonnes()}" var="p"
+							itemValue="#{p.idPersonne}"
+							itemLabel="#{p.nom},#{p.prenom},#{p.age}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="Lotissement" />
+					<h:selectOneMenu
+						value="#{lotissementBean.lotissement.idLot}">
+						<f:selectItem itemValue="0" itemLabel="Attribuez une lotissement" />
+						<f:selectItems value="#{lotissementBean.listerLotissements()}" var="l"
+							itemValue="#{l.idLot}"
+							itemLabel="#{l.numLot},#{l.adresseLot},#{l.dateCreation},#{l.prix}" />
+					</h:selectOneMenu>
+
+				</f:validateBean>
+			</h:panelGrid>
+			<h:commandButton action="#{lotissementBean.acheterLotissement}"
+				value="Acheter" />
+
+	
+		</h:form>
+	</div>
+</body>
+</html>
